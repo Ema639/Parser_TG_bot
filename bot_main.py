@@ -22,7 +22,7 @@ source_chats = [
 @client.on(events.NewMessage(chats=source_chats))  # Мониторим несколько чатов
 async def message_handler(event):
     # Проверяем, содержится ли в тексте сообщения слово "байк"
-    if 'байк' or 'скутер' in event.raw_text.lower():  # Сравнение текста с регистронезависимой проверкой
+    if 'байк' in event.raw_text.lower():  # Сравнение текста с регистронезависимой проверкой
         # Получаем информацию о чате
         chat_entity = await client.get_entity(event.chat_id)
         chat_title = chat_entity.title if hasattr(chat_entity, 'title') else 'Чат'
